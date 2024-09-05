@@ -1,0 +1,9 @@
+sudo docker-compose -f docker-compose.yml up
+
+
+sudo docker run -p 8000:3000 -e HOST_URL=http://192.168.2.26:8000 -e MILVUS_URL=192.168.2.26:19530 zilliz/attu:latest
+
+
+
+
+sudo docker run -p 8000:3000 -e HOST_URL=http://192.168.209.1:8000 -e MILVUS_URL=192.168.209.1:19530 zilliz/attu:latest

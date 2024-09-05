@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" package="">
+	<properties>
+		<property name="logging_directory">${sys:log.dir:-logs}</property>
+	</properties>
+	<appenders>
+		<RollingRandomAccessFile name="ROLLINGFILE_APPENDER"
+			immediateFlush="true" fileName="${logging_directory}/SPRING-AI-SERVICE.log" 
+			filePattern="${logging_directory}/SPRING-AI-SERVICE.log.%d{MM-dd-yyyy}-%i.gz">
+			<PatternLayout pattern="%p %t [%d %r] %c (%F:%L) - %m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="20 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" min="1" />
+		</RollingRandomAccessFile>
+	</appenders>
+	<loggers>
+		<root level="WARN">
+			<appender-ref ref="ROLLINGFILE_APPENDER" />
+		</root>
+	</loggers>
+</configuration>

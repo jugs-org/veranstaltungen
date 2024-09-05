@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" package="">
+	<appenders>
+		<Console name="STD_OUT_APPENDER" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{dd MMM yyyy HH:mm:ss} [%p:%t] (%F:%L) - %m%n" />
+			<Filters>
+				<ThresholdFilter level="WARN" onMatch="DENY" onMismatch="ACCEPT" />
+			</Filters>
+		</Console>
+		<Console name="ERR_OUT_APPENDER" target="SYSTEM_ERR">
+			<PatternLayout pattern="%d{dd MMM yyyy HH:mm:ss} [%p:%t] (%F:%L) - %m%n" />
+			<Filters>
+				<ThresholdFilter level="WARN" onMatch="ACCEPT" />
+			</Filters>
+		</Console>
+	</appenders>
+	<loggers>
+		<root level="INFO">
+			<appender-ref ref="STD_OUT_APPENDER" />
+			<appender-ref ref="ERR_OUT_APPENDER" />
+		</root>
+		<logger name="org.springframework.security" level="INFO" />
+		<logger name="de.ms" level="DEBUG" />
+	</loggers>
+</configuration>
